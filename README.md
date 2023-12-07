@@ -16,7 +16,7 @@ This project aims to create an interactive map using Mapbox, allowing users to e
 
 To run this project locally, follow these steps:
 
-1. **Clone the Repository**: `git clone https://github.com/your-username/your-repo.git`
+1. **Clone the Repository**: `git clone https://github.com/mgrigorii/mapbox_1.git`
 2. **Install Dependencies**: `npm install`
 3. **Setup Mapbox API Key**: Obtain a Mapbox API key from [Mapbox](https://www.mapbox.com/) and add it to the configuration file.
 
