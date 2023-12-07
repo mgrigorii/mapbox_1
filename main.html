@@ -40,7 +40,7 @@ body { margin: 0; padding: 0; }
 	// TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
 	// https://account.mapbox.com
-	mapboxgl.accessToken = 'pk.eyJ1IjoibWdyaWdvcmlpIiwiYSI6ImNscHVleGxkdTBpbjQydm9qYmcyaXZscWwifQ.7FfBzfQGfdeFFDZ3tj77yQ';
+	mapboxgl.accessToken = '';
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v11',
@@ -88,20 +88,6 @@ body { margin: 0; padding: 0; }
             .setPopup(popup)
             .addTo(map);
     })
-
-    // create the popup
-    // const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-    //     'Nice cafe close to the park'
-    // );
-
-    // // add marker1 to the map
-    // new mapboxgl.Marker({
-    //     color: '#42ddf5',
-    //     scale: 0.6
-    // })
-    //     .setLngLat([-48.559350,-27.591832])
-    //     .setPopup(popup)
-    //     .addTo(map);
 
 
     map.on('style.load', () => {
