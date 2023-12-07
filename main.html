@@ -35,23 +35,73 @@ body { margin: 0; padding: 0; }
 </style>
 <div id="map"></div>
 <button id="btn-spin">Pause rotation</button>
+
 <script>
 	// TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
 	// https://account.mapbox.com
-	mapboxgl.accessToken = '***';
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWdyaWdvcmlpIiwiYSI6ImNscHVleGxkdTBpbjQydm9qYmcyaXZscWwifQ.7FfBzfQGfdeFFDZ3tj77yQ';
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v11',
         projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
         zoom: 16,
-        center: [-48.560472,-27.592436]
+        center: [-48.562035,-27.591646]
     });
 
-    // add marker1 to the map
-    new mapboxgl.Marker()
-        .setLngLat([-48.559350,-27.591832])
-        .addTo(map);
+    const boroughs = [
+        {
+            name:'Park',
+            color:'#30a13a',
+            lnglat:[-48.560383,-27.592588]
+
+        },
+        {
+            name:'Bridge',
+            color:'##e8a03a',
+            lnglat:[-48.564342,-27.593586]
+
+        },
+        {
+            name:'Toilet',
+            color:'#f5dd25',
+            lnglat:[-48.562330,-27.592593]
+
+        },
+        {
+            name:'Parking',
+            color:'#4028de',
+            lnglat:[-48.560764,-27.591385]
+
+        }
+    ]
+
+    boroughs.forEach(({name, color, lnglat}) => {
+        const popup = new mapboxgl.Popup({ offset: 25 }).setText(name);
+
+        // add marker1 to the map
+        new mapboxgl.Marker({
+            color: color,
+            scale: 0.6
+        })
+            .setLngLat(lnglat)
+            .setPopup(popup)
+            .addTo(map);
+    })
+
+    // create the popup
+    // const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+    //     'Nice cafe close to the park'
+    // );
+
+    // // add marker1 to the map
+    // new mapboxgl.Marker({
+    //     color: '#42ddf5',
+    //     scale: 0.6
+    // })
+    //     .setLngLat([-48.559350,-27.591832])
+    //     .setPopup(popup)
+    //     .addTo(map);
 
 
     map.on('style.load', () => {
